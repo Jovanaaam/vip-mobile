@@ -1,0 +1,141 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+  <ui:composition template="../template/template3.xhtml">
+        <ui:define name="sadrzaj">
+            <h:form id="unos">
+
+                <p:growl id="poruka" showDetail="true" sticky="true"></p:growl>
+                <p:panel header="Unos zahteva za AS">
+               
+                     
+                      <p:outputLabel for="pretraga" value="Datum " />
+                      <p:inputText id="pretraga" style="margin-left: 0x" value="#{zahtevZaASIzmeni.datumZaPretragu}" >
+                        </p:inputText>
+                      <p:commandButton id="pronadji" style="margin-left: 10px" value="Pronađi" action="#{zahtevZaASIzmeni.vratiZahteve()}"  update ="@all" >
+                          
+                        </p:commandButton>
+                      <br></br>
+                       <br></br>
+                      <p:dataTable id="zahtevi"  style="width: 70%" editable="true" styleClass="tabela" value="#{zahtevZaASIzmeni.zahtevi}" var="zahtev" selectionMode="single" selection="#{zahtevZaASIzmeni.selektovanZahtev}" rowKey="#{zahtev.idzahteva}" editMode="true" >
+                          <p:ajax event="rowSelect" listener="#{zahtevZaASIzmeni.onRowSelectZahtev}" update=":unos:zaposleni :unos:ugovor :unos:datum :unos:active :unos:stavkezahteva"   />
+                   
+                           <p:column headerText="ID ZAHTEVA">
+                               <h:outputText value="#{zahtev.idzahteva}" />
+                                </p:column>
+                               <p:column headerText="RBR">
+                                   <h:outputText value="#{zahtev.datum}" />
+                                </p:column>
+                                 <p:column headerText="UGOVOR">
+                                     <h:outputText value="#{zahtev.idugovora}" />
+                                </p:column>
+                                 <p:column headerText="ZAPOSLENI">
+                                     <h:outputText value="#{zahtev.idzaposlenog}" />    
+                                </p:column> 
+                          <p:column headerText="ODOBRNO">
+                              <h:outputText value="#{zahtev.odobreno}" />    
+                                </p:column> 
+                             <p:column headerText="DATUM">
+                                 <h:outputText value="#{zahtev.datum}" />    
+                                </p:column> 
+                        </p:dataTable>
+                      <br></br>
+                       <br></br>
+                           <p:outputLabel for="zaposleni" value="Zaposleni "></p:outputLabel>
+                           <p:selectOneMenu id="zaposleni" style="width: 200px; margin-left: 0px" value="#{zahtevZaASIzmeni.idzaposlenog}">
+                          
+                            <f:selectItems value="#{zahtevZaASIzmeni.zaposleniMapa}" ></f:selectItems>
+                        </p:selectOneMenu>
+                          
+                        <p:outputLabel for="datum" value="Datum " style="margin-left: 10px" />
+                        <p:inputText id="datum" style="margin-left: 5px" value="#{zahtevZaASIzmeni.datumDrugiString}">
+                        </p:inputText>
+                                <br></br>
+                                 <br></br>
+                       <br></br>
+                        
+                              <p:outputLabel for="ugovor" value="Ugovor "></p:outputLabel>
+                              <p:selectOneMenu id="ugovor" style="width: 200px; margin-left: 0px" value="#{zahtevZaASIzmeni.idugovora}">
+                          
+                            <f:selectItems value="#{zahtevZaASIzmeni.ugovoriMapa}" ></f:selectItems>
+                        </p:selectOneMenu>
+                             
+                                <p:outputLabel for="active" value="Odobreno " style="margin-left: 10px"></p:outputLabel>
+                              <h:selectBooleanCheckbox id="active" value="#{zahtevZaASIzmeni.odobrno}" style="margin-left: 10px">
+                               
+                              </h:selectBooleanCheckbox>
+                                  
+                       <br></br>
+                        <br></br>
+                       <br></br>
+                              <br></br>
+                           <p:outputLabel for="rokisporuke" value="Rok isporuke "/>      
+                           <p:inputText id="rokisporuke" style="margin-left: 0px" value="#{zahtevZaASIzmeni.datumString}">
+                        </p:inputText>
+                          
+                         
+                           <p:selectOneMenu id="servis" style="width: 200px; margin-left: 10px" value="#{zahtevZaASIzmeni.idservisa}">
+                          
+                            <f:selectItems value="#{zahtevZaASIzmeni.servisiMapa}" ></f:selectItems>
+                        </p:selectOneMenu>
+                                  <br></br> 
+                                                                    <br></br> 
+                                                                                                   
+                                    <p:commandButton id="dodajStavku" style="margin-left: 0px" value="Dodaj stavku"  update="@all" action="#{zahtevZaASIzmeni.dodajUZahtevZaAS()}" >
+                         
+                           </p:commandButton>
+                           <p:commandButton id="izmeniStavku" style="margin-left: 10px" value="Izmeni stavku" update="@all" action="#{zahtevZaASIzmeni.izmeniStavku()}" />
+                           <p:commandButton id="obrisiStavku" style="margin-left: 20px" value="Obrisi stavku" update="@all"  action="#{zahtevZaASIzmeni.obrisiStavku()}"/>
+                           <br></br>
+                             <br></br>
+                           <p:dataTable id="stavkezahteva"  style="width: 70%" editable="true" styleClass="tabela" value="#{zahtevZaASIzmeni.stavke}" var="stavka" selectionMode="single" selection="#{zahtevZaASIzmeni.selektovanaStavka}" rowKey="#{stavka.stavkazahtevazaasPK}" editMode="true" >
+                               <p:ajax event="rowSelect" listener="#{zahtevZaASIzmeni.onRowSelect}" update=":unos:rokisporuke :unos:servis" />
+                   
+                           <p:column headerText="RBR">
+                            
+                                <h:outputText value="#{stavka.stavkazahtevazaasPK.rbr}" />
+                                
+      
+                                </p:column>
+                               <p:column headerText="ID ZAHTEVA">
+                                   <h:outputText value="#{stavka.stavkazahtevazaasPK.idzahteva}" />
+                               
+                                </p:column>
+                                 <p:column headerText="ROK ISPORUKE">
+                                     <h:outputText value="#{stavka.rokisporuke}" />
+                               
+                                </p:column>
+                                 <p:column headerText="SERVIS">
+                                     <h:outputText value="#{stavka.idservisa}" />
+                               
+                                </p:column>
+                          
+                          
+                          
+                      
+                        </p:dataTable>
+                                       <br></br>
+                         
+
+                    
+
+                   
+                    <br></br>
+                    <br></br>
+                    <p:commandButton id="sacuvaj" value="Sačuvaj"  update="@all" action="#{zahtevZaASIzmeni.sacuvajCeoZahtev()}" />
+                    <p:spacer width="600" height="0" />
+                    <p:commandButton id="odustani" value="Odustani"  update="@all" action="#{zahtevZaASIzmeni.odbaciZahtev()}" />
+                </p:panel>
+            </h:form>
+        </ui:define>
+
+        <ui:define name="bottom">
+
+        </ui:define>
+
+    </ui:composition>
+</html>

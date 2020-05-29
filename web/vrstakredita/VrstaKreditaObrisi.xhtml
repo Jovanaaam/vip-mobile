@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:cc="http://xmlns.jcp.org/jsf/composite">
+
+
+  <h:head>
+        
+    </h:head>
+
+    <ui:composition template="../template/template2.xhtml">
+
+        <ui:define name="sadrzaj">
+            <h:form id="izmena">
+
+                <p:growl id="poruka" showDetail="true" sticky="true"></p:growl>
+                <p:panel header="Izmena vrste kredita" >
+                   
+
+                        <p:outputLabel for="nazivvrstekredita" value="Naziv vrste kredita" style = ""/>
+                        <p:inputText id="nazivvrstekredita" style="margin-left: 0px" value="#{obrisiVrstuKredita.nazivZaPretragu}"  >
+                        </p:inputText>
+                        
+                       
+                        <p:commandButton id="pronadji" style="margin-left: 12px" value="Pronađi" action="#{obrisiVrstuKredita.vratiNazive()}"  update ="@all" >
+                            
+                        </p:commandButton>
+                        <br></br>
+                          <br></br>
+                        <p:dataTable id="vrstekredita"  style="width: 70%" editable="true" styleClass="tabela" value="#{obrisiVrstuKredita.vrsteKredita}" var="vrsta" selectionMode="single" selection="#{izmeniVrstuKredita.slektovanaVrsta}" rowKey="#{vrsta.idvrstekredita}" editMode="true" >
+                            <p:ajax event="rowSelect" listener="#{obrisiVrstuKredita.onRowSelect}" />
+                   
+                         <p:column  headerText="Naziv vrste kredita" >
+                             <h:outputText id="kolonanaziv"  value="#{vrsta.nazivvrstekredita}" />
+          
+                        </p:column>
+                           
+                       
+                        
+                        
+
+                        </p:dataTable>
+    
+                          
+                   
+                        <br></br>  
+                         <p:commandButton  id = "obrisi" value="Obrisi"  style="margin-right: 100px" update = "@all"  action ="#{obrisiVrstuKredita.obrisiVrstuKredita()}" >
+                         
+                        </p:commandButton>
+                         
+                         
+                  
+                   
+                    <p:spacer width="600" height="0" />
+                   
+                </p:panel>
+            </h:form>
+        </ui:define>
+
+        <ui:define name="bottom">
+
+        </ui:define>
+    </ui:composition>
+
+</html>
+

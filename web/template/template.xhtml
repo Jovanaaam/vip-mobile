@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>VIP MOBILE</title>
+             <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+         <h:outputStylesheet name="resources/css/style.css"></h:outputStylesheet>
+    </h:head>
+    <body>
+       <div class="top">
+              <ui:insert name ="top">
+                <h:form >
+                    <p:menubar >
+                        <p:menuitem value="Početna" url="/index.xhtml" icon="ui-icon-home"></p:menuitem>
+                        <p:submenu label="Vrsta kredita" icon="ui-icon-document">
+                            <p:menuitem value="Dodaj" url="vrstakredita/VrstaKreditaDodaj.xhtml" />
+                            <p:separator />
+                            <p:menuitem value="Izmeni" url="vrstakredita/VrstaKreditaIzmeni.xhtml" />
+                               <p:separator />
+                            <p:menuitem value="Obrisi" url="vrstakredita/VrstaKreditaObrisi.xhtml" />
+                               <p:separator />
+                            <p:menuitem value="Pretrazi" url="vrstakredita/VrstaKreditaPretrazi.xhtml" />
+                        </p:submenu>
+                        <p:submenu label="Zahtev za AS" icon="ui-icon-document">
+                            <p:menuitem value="Dodaj" url="zahtevzaas/ZahtevZaASUnesi.xhtml" />
+                            <p:separator />
+                            <p:menuitem value="Izmeni" url="zahtevzaas/ZahtevZaASIzmeni.xhtml" />
+                             <p:separator />
+                            <p:menuitem value="Obrisi" url="zahtevzaas/ZahtevZaASObrisi.xhtml" />
+                            <p:separator />
+                            <p:menuitem value="Pretrazi" url="zahtevzaas/ZahtevZaASPretrazi.xhtml" />
+                           
+                        </p:submenu>
+                
+                        </p:menubar>
+                    </h:form>
+                        </ui:insert>
+            </div>
+            <br></br> 
+            
+            <div class="sadrzaj">
+                <ui:insert name ="sadrzaj"> Default sadrzaj! </ui:insert>
+            </div>
+        
+            <div class="bottom">
+              
+            </div>
+    </body>
+</html>

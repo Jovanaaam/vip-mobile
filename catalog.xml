@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:8080/FPIS-projekat/ZahtevZaAS?wsdl" uri="src/conf/xml-resources/web-service-references/ZahtevZaAS_1/wsdl/localhost_8080/FPIS-projekat/ZahtevZaAS.wsdl"/>
+    <system systemId="http://localhost:8080/FPIS-projekat/ZahtevZaAS?xsd=1" uri="src/conf/xml-resources/web-service-references/ZahtevZaAS_1/wsdl/localhost_8080/FPIS-projekat/ZahtevZaAS.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/ZahtevZaAS/ZahtevZaAS?wsdl" uri="src/conf/xml-resources/web-service-references/ZahtevZaAS/wsdl/localhost_8080/ZahtevZaAS/ZahtevZaAS.wsdl"/>
+    <system systemId="http://localhost:8080/ZahtevZaAS/ZahtevZaAS?xsd=1" uri="src/conf/xml-resources/web-service-references/ZahtevZaAS/wsdl/localhost_8080/ZahtevZaAS/ZahtevZaAS.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/WebServisSacuvajZahtev/WebServisSacuvajZahtev?wsdl" uri="src/conf/xml-resources/web-service-references/WebServisSacuvajZahtev/wsdl/localhost_8080/WebServisSacuvajZahtev/WebServisSacuvajZahtev.wsdl"/>
+    <system systemId="http://localhost:8080/WebServisSacuvajZahtev/WebServisSacuvajZahtev?xsd=1" uri="src/conf/xml-resources/web-service-references/WebServisSacuvajZahtev/wsdl/localhost_8080/WebServisSacuvajZahtev/WebServisSacuvajZahtev.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/WebServiceSacuvajZahtev/WebServiceSacuvajZahtev?wsdl" uri="src/conf/xml-resources/web-service-references/WebServiceSacuvajZahtev/wsdl/localhost_8080/WebServiceSacuvajZahtev/WebServiceSacuvajZahtev.wsdl"/>
+    <system systemId="http://localhost:8080/WebServiceSacuvajZahtev/WebServiceSacuvajZahtev?xsd=1" uri="src/conf/xml-resources/web-service-references/WebServiceSacuvajZahtev/wsdl/localhost_8080/WebServiceSacuvajZahtev/WebServiceSacuvajZahtev.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/FPIS-projekat/WebServiceSacuvajZahtev?wsdl" uri="src/conf/xml-resources/web-service-references/WebServiceSacuvajZahtev/wsdl/localhost_8080/FPIS-projekat/WebServiceSacuvajZahtev.wsdl"/>
+    <system systemId="http://localhost:8080/FPIS-projekat/WebServiceSacuvajZahtev?xsd=1" uri="src/conf/xml-resources/web-service-references/WebServiceSacuvajZahtev/wsdl/localhost_8080/FPIS-projekat/WebServiceSacuvajZahtev.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/FPIS-projekat/WebServis?wsdl" uri="src/conf/xml-resources/web-service-references/WebServis/wsdl/localhost_8080/FPIS-projekat/WebServis.wsdl"/>
+    <system systemId="http://localhost:8080/FPIS-projekat/WebServis?xsd=1" uri="src/conf/xml-resources/web-service-references/WebServis/wsdl/localhost_8080/FPIS-projekat/WebServis.xsd_1.xsd"/>
+</catalog>
